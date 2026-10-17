@@ -1,5 +1,10 @@
 package org.Chess.Domain;
 
+import org.Chess.Domain.Model.ChessBoard;
+import org.Chess.Domain.Model.PieceColor;
+import org.Chess.Domain.Model.PieceType;
+import org.Chess.Domain.Model.Square;
+
 public class BoardPrinter {
 
     public static void print(ChessBoard board) {

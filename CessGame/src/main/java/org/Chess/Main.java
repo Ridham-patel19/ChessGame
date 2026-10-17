@@ -1,13 +1,36 @@
 
 package org.Chess;
 
-import org.Chess.Domain.*;
+import org.Chess.Application.GameNotFoundException;
+import org.Chess.Application.GameRepository;
+import org.Chess.Application.GameService;
+import org.Chess.Domain.Exception.IllegalMoveException;
+import org.Chess.Domain.Game.GameId;
+import org.Chess.Domain.Game.GameStatus;
+import org.Chess.Domain.Game.MoveResult;
+import org.Chess.Domain.Game.PlayerId;
+import org.Chess.Domain.Model.PieceColor;
+import org.Chess.Domain.Model.Square;
+import org.Chess.Domain.Moves.AttackDetecter;
+import org.Chess.Domain.Moves.LegalMovsGenerator;
+import org.Chess.Domain.Moves.Move;
+import org.Chess.Domain.NotYourTureException;
+import org.Chess.Domain.Rules.GameStatusEvaluator;
+import org.Chess.Domain.NotYourTureException;
+import org.Chess.Infrastructure.InMemoryGameRepository;
+
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Create the dependencies
+        System.out.println("========== PHASE 9: APPLICATION + REPOSITORY TESTS ==========");
+
+        // =====================================================
+        // SETUP: COMPOSITION ROOT
+        // =====================================================
+
         AttackDetecter attackDetector = new AttackDetecter();
 
         LegalMovsGenerator legalMoveGenerator =
@@ -17,141 +40,184 @@ public class Main {
                 new GameStatusEvaluator(
                         attackDetector,
                         legalMoveGenerator
-
                 );
 
-        // Create a new game
-        Game game = new Game(
-                GameId.newId(),
-                new PlayerId("alice"),
-                new PlayerId("bob"),
-                legalMoveGenerator,
-                evaluator
-        );
+        GameRepository repository =
+                new InMemoryGameRepository();
 
-        System.out.println("========== PHASE 9: GAME TEST ==========");
+        GameService service =
+                new GameService(
+                        repository,
+                        legalMoveGenerator,
+                        evaluator
+                );
 
-        // TEST 1: Initial game state
-        System.out.println("\n--- TEST 1: Initial State ---");
+        PlayerId alice = new PlayerId("alice");
+        PlayerId bob = new PlayerId("bob");
 
-        System.out.println("Game ID: " + game.id().value());
-        System.out.println("Initial status: " + game.status());
-        System.out.println("Player to move: "
-                + game.playerToMove().value());
-        System.out.println("Side to move: "
-                + game.position().sidetoMove());
+        // =====================================================
+        // TEST 1: CREATE A GAME
+        // =====================================================
 
-        // TEST 2: Play Fool's Mate
-        System.out.println("\n--- TEST 2: Play Fool's Mate ---");
+        System.out.println("\n--- TEST 1: Create Game ---");
 
-        playMove(game, "f2", "f3");
-        playMove(game, "e7", "e5");
-        playMove(game, "g2", "g4");
+        GameId id = service.createGame(alice, bob);
 
-        MoveResult result = game.play(
-                Square.fromNotation("d8"),
-                Square.fromNotation("h4"),
+        System.out.println("Created game ID: " + id.value());
+
+        check("Game ID was created", id != null);
+
+        check("Game can be retrieved",
+                service.getPosition(id) != null);
+
+        System.out.println("Initial side to move: "
+                + service.getPosition(id).sidetoMove());
+
+        check("White moves first",
+                service.getPosition(id).sidetoMove()
+                        == PieceColor.WHITE);
+
+        // =====================================================
+        // TEST 2: ALICE MAKES A LEGAL MOVE
+        // e2 -> e4
+        // =====================================================
+
+        System.out.println("\n--- TEST 2: Legal Move by Alice ---");
+
+        MoveResult result = service.makeMove(
+                id,
+                alice,
+                Square.fromNotation("e2"),
+                Square.fromNotation("e4"),
                 null
         );
 
-        System.out.println("Move: d8 -> h4");
-        System.out.println("Move result status: " + result.status());
-        System.out.println("Next side to move: " + result.nextToMove());
-        System.out.println("Game status: " + game.status());
-        System.out.println("Game over: " + game.isOver());
+        System.out.println("Move status: " + result.status());
+        System.out.println("Next side: " + result.nextToMove());
 
-        // TEST 3: Verify checkmate
-        System.out.println("\n--- TEST 3: Checkmate Verification ---");
+        check("Move was accepted",
+                result.status() == GameStatus.ONGOING);
 
-        check(
-                "Game status is CHECKMATE",
-                game.status() == GameStatus.CHECKMATE
-        );
+        check("Black moves next",
+                result.nextToMove() == PieceColor.BLACK);
 
-        check(
-                "Game is over",
-                game.isOver()
-        );
+        check("Position was updated",
+                service.getPosition(id).board()
+                        .pieceAt(Square.fromNotation("e4"))
+                        .isPresent());
 
-        check(
-                "History contains 4 moves",
-                game.history().size() == 4
-        );
+        // =====================================================
+        // TEST 3: ALICE TRIES TO MOVE AGAIN
+        // Expected: NotYourTurnException
+        // =====================================================
 
-        check(
-                "White is the side to move after checkmate",
-                game.position().sidetoMove() == PieceColor.WHITE
-        );
-
-        // TEST 4: Verify playerToMove
-        System.out.println("\n--- TEST 4: Player Verification ---");
-
-        System.out.println("Player to move: "
-                + game.playerToMove().value());
-
-        check(
-                "Alice is White and White is to move",
-                game.playerToMove().value().equals("alice")
-        );
-
-        // TEST 5: Attempt another move after checkmate
-        System.out.println("\n--- TEST 5: Move After Game Over ---");
+        System.out.println("\n--- TEST 3: Wrong Player's Turn ---");
 
         try {
-            game.play(
-                    Square.fromNotation("e2"),
-                    Square.fromNotation("e4"),
+            service.makeMove(
+                    id,
+                    alice,
+                    Square.fromNotation("d2"),
+                    Square.fromNotation("d4"),
                     null
             );
 
-            System.out.println("[FAIL] Move should have been rejected");
+            check("Wrong-turn move is rejected", false);
 
-        } catch (IllegalMoveException exception) {
-            System.out.println("[PASS] Move rejected: "
-                    + exception.getMessage());
+        } catch (NotYourTureException exception) {
+            System.out.println("[PASS] " + exception.getMessage());
         }
 
-        // TEST 6: Print move history
-        System.out.println("\n--- TEST 6: Move History ---");
+        // =====================================================
+        // TEST 4: BOB MAKES AN ILLEGAL MOVE
+        // e7 -> e3 is not a legal pawn move
+        // Expected: IllegalMoveException
+        // =====================================================
 
-        int moveNumber = 1;
+        System.out.println("\n--- TEST 4: Illegal Move by Bob ---");
 
-        for (Move move : game.history()) {
+        try {
+            service.makeMove(
+                    id,
+                    bob,
+                    Square.fromNotation("e7"),
+                    Square.fromNotation("e3"),
+                    null
+            );
+
+            check("Illegal move is rejected", false);
+
+        } catch (IllegalMoveException exception) {
+            System.out.println("[PASS] " + exception.getMessage());
+        }
+
+        // =====================================================
+        // TEST 5: UNKNOWN GAME ID
+        // Expected: GameNotFoundException
+        // =====================================================
+
+        System.out.println("\n--- TEST 5: Unknown Game ---");
+
+        try {
+            service.getPosition(GameId.newId());
+
+            check("Unknown game is rejected", false);
+
+        } catch (GameNotFoundException exception) {
+            System.out.println("[PASS] " + exception.getMessage());
+        }
+
+        // =====================================================
+        // TEST 6: LEGAL MOVES FOR BLACK'S e7 PAWN
+        // Expected destinations: e6 and e5
+        // =====================================================
+
+        System.out.println("\n--- TEST 6: Black's Legal Moves ---");
+
+        List<Move> legalMoves = service.getLegalMoves(
+                id,
+                Square.fromNotation("e7")
+        );
+
+        System.out.println("Legal moves from e7:");
+
+        for (Move move : legalMoves) {
             System.out.println(
-                    moveNumber++ + ". "
-                            + move.from().toNotation()
+                    move.from().toNotation()
                             + " -> "
                             + move.to().toNotation()
             );
         }
 
-        System.out.println("\n========== TESTS COMPLETED ==========");
+        boolean canMoveE6 = legalMoves.stream()
+                .anyMatch(move ->
+                        move.to().equals(Square.fromNotation("e6")));
+
+        boolean canMoveE5 = legalMoves.stream()
+                .anyMatch(move ->
+                        move.to().equals(Square.fromNotation("e5")));
+
+        check("e7 -> e6 is legal", canMoveE6);
+        check("e7 -> e5 is legal", canMoveE5);
+
+        // =====================================================
+        // TEST 7: REPOSITORY RETAINS THE UPDATED GAME
+        // =====================================================
+
+        System.out.println("\n--- TEST 7: Repository Verification ---");
+
+        check("Game remains retrievable after move",
+                service.getPosition(id) != null);
+
+        check("Updated board is retained",
+                service.getPosition(id).board()
+                        .pieceAt(Square.fromNotation("e4"))
+                        .isPresent());
+
+        System.out.println("\n========== PHASE 9 TESTS COMPLETED ==========");
     }
 
-    private static void playMove(
-            Game game,
-            String from,
-            String to
-    ) {
-        MoveResult result = game.play(
-                Square.fromNotation(from),
-                Square.fromNotation(to),
-                null
-        );
-
-        System.out.println(
-                from + " -> " + to
-                        + " | Status: " + result.status()
-                        + " | Next: " + result.nextToMove()
-                        + " | Player: "
-                        + game.playerToMove().value()
-        );
-    }
-
-    private static void check(
-            String description,
-            boolean passed
-    ) {
+    private static void check(String description, boolean passed) {
         System.out.println(
                 (passed ? "[PASS] " : "[FAIL] ") + description
         );

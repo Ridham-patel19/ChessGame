@@ -5,76 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db314c35-d31c-49a3-b8e3-044d9f78652b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/AttackDetecter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BishopMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BoardFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BoardPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/CastlingRights.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/CastlingRules.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/ChessBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/GameId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/GameStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/GameStatusEvaluator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/IllegalMoveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/KingMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/KnightMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/LegalMovsGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/MoveResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/MoveType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/NotYourTureException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PawnMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Piece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PieceColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PieceMovesStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PieceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PlayerId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PseudoLegalMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/QueenMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/RookMoves.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/AttackDetecter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/BishopMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/BoardFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/BoardPrinter$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/BoardPrinter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/CastlingRights.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/CastlingRules.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/ChessBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/Game.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/GameId.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/GameStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/GameStatusEvaluator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/IllegalMoveException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/KingMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/KnightMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/LegalMovsGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/Move.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/MoveResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/MoveType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/NotYourTureException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/PawnMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/Piece.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/PieceColor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/PieceMovesStrategy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/PieceType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/PlayerId.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/Position.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/PseudoLegalMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/QueenMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/RookMoves.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Domain/Square.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CessGame/target/classes/org/Chess/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Application/GameNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Application/GameRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Application/GameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Infrastructure/InMemoryGameRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/AttackDetecter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/AttackDetecter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BishopMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/BishopMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BoardFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/BoardFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BoardPrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/BoardPrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/CastlingRights.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/CastlingRights.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/CastlingRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Rules/CastlingRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/ChessBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/GameId.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game/GameId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/GameStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game/GameStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/GameStatusEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Rules/GameStatusEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/IllegalMoveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Exception/IllegalMoveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/KingMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/KingMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/KnightMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/KnightMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/LegalMovsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/LegalMovsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/MoveResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game/MoveResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/MoveType.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/MoveType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PawnMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/PawnMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PieceColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/PieceColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PieceMovesStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/PieceMovesStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/PieceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PlayerId.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Game/PlayerId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/PseudoLegalMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/PseudoLegalMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/QueenMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/QueenMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/RookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Moves/RookMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Domain/Model/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/CessGame/src/main/java/org/Chess/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,10 +49,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
-        <option value="Exception" />
         <option value="Record" />
+        <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -109,12 +74,16 @@
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Java Chess game project",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "D:/Java Chess game project/CessGame/src/main/java/org/Chess/Main.java",
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
