@@ -1,9 +1,6 @@
 package org.Chess.Application;
 
-import org.Chess.Domain.Game.Game;
-import org.Chess.Domain.Game.GameId;
-import org.Chess.Domain.Game.MoveResult;
-import org.Chess.Domain.Game.PlayerId;
+import org.Chess.Domain.Game.*;
 import org.Chess.Domain.Model.PieceType;
 import org.Chess.Domain.Model.Position;
 import org.Chess.Domain.Model.Square;
@@ -57,6 +54,10 @@ public class GameService {
     private Game load(GameId id) {
         return repository.findById(id).orElseThrow(() -> new GameNotFoundException(id));
     }
+  public GameStatus getStatus(GameId id){return load(id).status();}
+
+    public boolean isOver(GameId id){return load(id).isOver();}
+
 }
 
 
